@@ -81,7 +81,7 @@
       (if x (y) false)))))")
 
 (def math-description
-  "M leverages ideas from Alonso Church's Lambda Calculus to reduce language complexity and provide a remarkably pure language")
+  "M leverages ideas from Alonzo Church's Lambda Calculus to reduce language complexity and provide a remarkably pure language")
 
 (defn about []
   [:div (use-style about-style)
