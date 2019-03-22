@@ -41,7 +41,7 @@
                 :min-height "500px"
                 :height "700px"}))
 
-(def tagline "Lisp + FP = ❤️")
+(def tagline "A Minimal Lisp")
 
 (defn header []
   [:div (use-style header-style)
