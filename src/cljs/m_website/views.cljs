@@ -103,7 +103,7 @@
 
 
 (def backends-style (styles section-style
-                            {:background-color :#a23fb8dd
+                            {:background-color "rgba(162, 63, 184, 0.88)"
                              :color :ghostwhite}))
 
 (defn backend-icon [icon caption]
