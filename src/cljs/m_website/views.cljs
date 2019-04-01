@@ -68,10 +68,10 @@
                          :color :white
                          ::stylefy/manual [[:.row {:margin-bottom "20px"}]]}))
 
-(def math-example-str ";; The singleton truthy value, a function which ignores its second argument.
+(def math-example-str ";; A function which ignores its second argument.
 (def true (id const))
 
-;; The singleton falsy value, a function which ignores its first argument.
+;; A function which ignores its first argument.
 (def false (const id))
 
 ;; True if both arguments are true.
