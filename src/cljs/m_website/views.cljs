@@ -165,7 +165,7 @@
       [card {}
        [heading "Read The Specification"]
        [:p (use-style {:font-weight 600 :opacity 0.9})
-        "M is developed according to a specification even simpler than Scheme's,
+        "M is developed according to an incredibly simple specification,
          meaning that there will be no surprises during program execution."]
        [:div
         [:a (use-style {:color :lightgrey :text-decoration :none}
