@@ -92,13 +92,8 @@
        [heading "Mathematically Inspired"]
        [:p (use-style {:font-weight 600 :opacity 0.9}) math-description]]]
      [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
-      [card {:background-color "#3a3a3c"
-             :color "ghostwhite"
-             :font-family "IBM Plex Mono"
-             :min-width 0
-             :box-shadow "0px 5px 10px #000000dd"}
-       [:pre (use-style (styles nopad {:overflow-x :auto}))
-        [:code math-example-str]]]]]
+      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
+        math-example-str]]]
     ]])
 
 
