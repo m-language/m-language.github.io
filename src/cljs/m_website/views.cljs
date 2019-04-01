@@ -76,12 +76,12 @@
 
 ;; True if both arguments are true.
 (def and
-  (lambda x
-    (lambda y
-      (if x (y) false)))))")
+  (fn x y
+    (x (y id) false))))")
 
 (def math-description
-  "M leverages ideas from Alonzo Church's Lambda Calculus to reduce language complexity and provide a remarkably pure language")
+  "M leverages ideas from Alonzo Church's Lambda Calculus to reduce language
+   complexity and provide a remarkably pure language.")
 
 (defn about []
   [:div (use-style about-style)
@@ -170,9 +170,8 @@
       [card {}
        [heading "Read The Specification"]
        [:p (use-style {:font-weight 600 :opacity 0.9})
-        "M is developed according to specification, meaning that there should
-         be no surprises during program execution. Additionally, the specification
-         is very minimal, unlike Scheme."]
+        "M is developed according to a specification even simpler than Scheme's,
+         meaning that there will be no surprises during program execution."]
        [:div
         [:a (use-style {:color :lightgrey :text-decoration :none}
                        {:href "https://github.com/m-language/m-spec/raw/master/m.pdf"})
