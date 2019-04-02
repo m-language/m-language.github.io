@@ -165,8 +165,8 @@
       [card {}
        [heading "Read The Specification"]
        [:p (use-style {:font-weight 600 :opacity 0.9})
-        "M is developed according to an incredibly simple specification,
-         meaning that there will be no surprises during program execution."]
+        "M is developed according to a simple mathematical specification,
+        meaning that there will be no surprises during program execution."]
        [:div
         [:a (use-style {:color :lightgrey :text-decoration :none}
                        {:href "https://github.com/m-language/m-spec/raw/master/m.pdf"})
