@@ -157,13 +157,17 @@
                         {:background-color "#2a2a2c"
                          :color :ghostwhite}))
 
+(def learn-style (styles section-style
+                        {:background-color "#2980B9"
+                         :color :ghostwhite}))
+
 (defn spec []
   [:div (use-style spec-style)
    [:div.container-fluid (use-style wrap)
     [:div.row
      [:div.col-xs-12.col-sm-7
       [card {}
-       [heading "Read The Specification"]
+       [heading "Formally Specified"]
        [:p (use-style {:font-weight 600 :opacity 0.9})
         "M is developed according to a simple mathematical specification,
         meaning that there will be no surprises during program execution."]
@@ -179,12 +183,24 @@
        [:img {:src "images/spec.png" :width "100%"}]]]]]
     ]])
 
+(defn readthedocs []
+  [:div (use-style learn-style)
+   [:div.container-fluid (use-style wrap)
+    [:div.row
+     [:div.col-xs-12.col-sm-12
+      [card {}
+       [:h1 (use-style {:text-align :center :font-size "3.0em" :margin "15vh"})
+        [:a (use-style {:color :lightgrey :text-decoration :none}
+                       {:href "https://m-language.readthedocs.io/"})
+         "Read The Docs"]]]]]]])
+
 (defn home-panel []
   [:div
    [header]
    [about]
    [backends]
    [editors]
-   [spec]])
+   [spec]
+   [readthedocs]])
 
 (def main-panel home-panel)
