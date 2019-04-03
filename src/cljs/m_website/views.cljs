@@ -104,7 +104,7 @@
     (_
       (run-async
         (write-line stdout x)
-        (write-line (file-out (string \"out.log\") x))))
+        (write-line (file-out (string \"out.log\")) x)))
     (_ echo)))")
 
 (def functional-description
