@@ -79,7 +79,7 @@ PR['registerLangHandler'](
             [PR['PR_STRING'],      /^\"(?:[^\"\\]|\\[\s\S])*(?:\"|$)/, null, '"']
         ],
         [
-            [PR['PR_KEYWORD'],     /^(?:def|fn|macro)\b/, null],
+            [PR['PR_KEYWORD'],     /^(?:def-json-rw|def|fn|defn|\*|_|macro|data|do|string|nat|i32|match|specialize|stdin|stdout|run-async|tail-recursive|use-accumulator)\b/, null],
             [PR['PR_LITERAL'],
                 /^[+\-]?(?:[0#]x[0-9a-f]+|\d+\/\d+|(?:\.\d+|\d+(?:\.\d*)?)(?:[ed][+\-]?\d+)?)/i],
             // A single quote possibly followed by a word that optionally ends with

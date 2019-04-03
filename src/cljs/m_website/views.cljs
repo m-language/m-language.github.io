@@ -83,6 +83,49 @@
   "M leverages ideas from Alonzo Church's Lambda Calculus to reduce language
    complexity and provide a remarkably pure language.")
 
+(def abstract-example-str ";; A person data type.
+(data person name age)
+
+;; Generates json functions at compile time.
+(def-json-rw person)
+
+;; Writes {\"name\":\"James\",\"age\":21}
+(json-write-person stdout
+  (person (string \"James\") (nat 21))")
+
+(def abstract-description
+  "M's powerful macro system allows the definition of anything from
+  control flow to type systems to generic DSLs.")
+
+(def functional-example-str ";; A simple echo program which logs its output.
+(def echo
+  (do
+    (x (read-line stdin))
+    (_
+      (run-async
+        (write-line stdout x)
+        (write-line (file-out (string \"out.log\") x))))
+    (_ echo)))")
+
+(def functional-description
+  "M's segregation of side effects allows for simple reasoning about programs
+  for both you and the compiler.")
+
+(def performance-example-str ";; A high performance recursive factorial function.
+(tail-recursive
+(use-accumulator x
+(defn factorial x
+  (match x
+    0 1
+    _ (* x (factorial (dec x))))))))
+
+;; Specializes factorial for 32 bit integers and calls it.
+((specialize factorial i32) (i32 50))")
+
+(def performance-description
+  "M's simplicity means that the compiler and its optimizations are
+  fast and don't degrade when abstractions are introduced.")
+
 (defn about []
   [:div (use-style about-style)
    [:div.container-fluid (use-style wrap)
@@ -94,6 +137,30 @@
      [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
         math-example-str]]]
+    [:div.row (use-style {:width "100%"})
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
+       abstract-example-str]]
+     [:div.col-xs-12.col-sm-5.col-md-6
+      [card {}
+       [heading "Structurally Abstract"]
+       [:p (use-style {:font-weight 600 :opacity 0.9}) abstract-description]]]]
+    [:div.row (use-style {:width "100%"})
+     [:div.col-xs-12.col-sm-5.col-md-6
+      [card {}
+       [heading "Purely Functional"]
+       [:p (use-style {:font-weight 600 :opacity 0.9}) functional-description]]]
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
+       functional-example-str]]]
+    [:div.row (use-style {:width "100%"})
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
+       performance-example-str]]
+     [:div.col-xs-12.col-sm-5.col-md-6
+      [card {}
+       [heading "High Performance"]
+       [:p (use-style {:font-weight 600 :opacity 0.9}) performance-description]]]]
     ]])
 
 
