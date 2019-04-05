@@ -89,7 +89,7 @@
 ;; Generates json functions at compile time.
 (def-json-rw person)
 
-;; Writes {\"name\":\"James\",\"age\":21}
+;; Writes {\"name\":\"James\",\"age\":21}.
 (json-write-person stdout
   (person (string \"James\") (nat 21))")
 
@@ -98,7 +98,7 @@
   control flow to type systems to generic DSLs.")
 
 (def functional-example-str ";; A simple echo program which logs its output.
-(def echo
+(defrec echo
   (do
     (x (read-line stdin))
     (_
@@ -114,7 +114,7 @@
 (def performance-example-str ";; A high performance recursive factorial function.
 (tail-recursive
 (use-accumulator x
-(defn factorial x
+(defnrec factorial x
   (match x
     0 1
     _ (* x (factorial (dec x))))))))
