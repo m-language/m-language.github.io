@@ -129,7 +129,7 @@
   [:div (use-style about-style)
    [:div.container-fluid (use-style wrap)
     ;; -------------------------------------------------
-    [:div.row (use-style {:width "100%"})
+    [:div.row (use-style {:width "100%" :margin :auto})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
        [heading "Mathematically Inspired"]
@@ -138,7 +138,7 @@
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
         math-example-str]]]
     ;; -------------------------------------------------
-    [:div.row (use-style {:width "100%" :flex-direction :row-reverse})
+    [:div.row (use-style {:width "100%" :margin :auto :flex-direction :row-reverse})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
        [heading "Structurally Abstract"]
@@ -147,7 +147,7 @@
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
        abstract-example-str]]]
     ;; -------------------------------------------------
-    [:div.row (use-style {:width "100%"})
+    [:div.row (use-style {:width "100%" :margin :auto})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
        [heading "Purely Functional"]
@@ -156,7 +156,7 @@
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
        functional-example-str]]]
     ;; -------------------------------------------------
-    [:div.row (use-style {:width "100%" :flex-direction :row-reverse})
+    [:div.row (use-style {:width "100%" :margin :auto :flex-direction :row-reverse})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
        [heading "High Performance"]
