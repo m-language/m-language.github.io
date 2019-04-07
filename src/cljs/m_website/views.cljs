@@ -134,7 +134,7 @@
       [card {}
        [heading "Mathematically Inspired"]
        [:p (use-style {:font-weight 600 :opacity 0.9}) math-description]]]
-     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:margin :auto :display "flex"})
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
         math-example-str]]]
     ;; -------------------------------------------------
@@ -143,7 +143,7 @@
       [card {}
        [heading "Structurally Abstract"]
        [:p (use-style {:font-weight 600 :opacity 0.9}) abstract-description]]]
-     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:margin :auto :display "flex"})
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
        abstract-example-str]]]
     ;; -------------------------------------------------
@@ -152,7 +152,7 @@
       [card {}
        [heading "Purely Functional"]
        [:p (use-style {:font-weight 600 :opacity 0.9}) functional-description]]]
-     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:margin :auto :display "flex"})
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
        functional-example-str]]]
     ;; -------------------------------------------------
@@ -161,7 +161,7 @@
       [card {}
        [heading "High Performance"]
        [:p (use-style {:font-weight 600 :opacity 0.9}) performance-description]]]
-     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:margin :auto :display "flex"})
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
        performance-example-str]]]
     ]])
