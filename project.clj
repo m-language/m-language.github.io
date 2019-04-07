@@ -1,11 +1,10 @@
-(defproject m-website "0.1.0-SNAPSHOT"
+(defproject m-website "0.9.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.10.238"]
                  [reagent "0.7.0"]
                  [re-frame "0.10.5"]
                  [secretary "1.2.3"]
                  [stylefy "1.11.1"]
-                 [garden "1.3.5"]
                  [ns-tracker "0.3.1"]]
 
   :plugins [[lein-cljsbuild "1.1.7"]
@@ -19,16 +18,9 @@
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
-  :garden {:builds [{:id           "screen"
-                     :source-paths ["src/clj"]
-                     :stylesheet   m-website.css/screen
-                     :compiler     {:output-to     "resources/public/css/screen.css"
-                                    :pretty-print? true}}]}
-
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.9.10"]]
-
     :plugins      [[lein-figwheel "0.5.16"]]}
    :prod { }
    }
