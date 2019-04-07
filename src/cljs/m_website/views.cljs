@@ -15,7 +15,7 @@
 
 ;; home
 
-(def full {:width "" :height "100%"})
+(def full {:margin :auto :height "100%"})
 
 (def wrap {:max-width "960px" :margin "auto"})
 
@@ -60,8 +60,7 @@
      (doall (for [item children] ^{:key item} [:div (use-style {:height "100%"}) item]))])
 
 
-(defn heading [text]
-  [:h1 (use-style {:margin 0}) text])
+(defn heading [text] [:h1 (use-style {:margin 0}) text])
 
 (def about-style (styles section-style
                         {:background-color m-purple
@@ -129,6 +128,7 @@
 (defn about []
   [:div (use-style about-style)
    [:div.container-fluid (use-style wrap)
+    ;; -------------------------------------------------
     [:div.row (use-style {:width "100%"})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
@@ -137,14 +137,16 @@
      [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
         math-example-str]]]
-    [:div.row (use-style {:width "100%"})
-     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
-      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
-       abstract-example-str]]
+    ;; -------------------------------------------------
+    [:div.row (use-style {:width "100%" :flex-direction :row-reverse})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
        [heading "Structurally Abstract"]
-       [:p (use-style {:font-weight 600 :opacity 0.9}) abstract-description]]]]
+       [:p (use-style {:font-weight 600 :opacity 0.9}) abstract-description]]]
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
+       abstract-example-str]]]
+    ;; -------------------------------------------------
     [:div.row (use-style {:width "100%"})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
@@ -153,20 +155,22 @@
      [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
       [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
        functional-example-str]]]
-    [:div.row (use-style {:width "100%"})
-     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
-      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
-       performance-example-str]]
+    ;; -------------------------------------------------
+    [:div.row (use-style {:width "100%" :flex-direction :row-reverse})
      [:div.col-xs-12.col-sm-5.col-md-6
       [card {}
        [heading "High Performance"]
-       [:p (use-style {:font-weight 600 :opacity 0.9}) performance-description]]]]
+       [:p (use-style {:font-weight 600 :opacity 0.9}) performance-description]]]
+     [:div.col-xs-12.col-sm-7.col-md-6 (use-style {:display "flex"})
+      [:pre.prettyprint.lang-lisp (use-style (styles nopad {:overflow-x :auto}))
+       performance-example-str]]]
     ]])
 
 
-(def backends-style (styles section-style
-                            {:background-color "rgba(162, 63, 184, 0.88)"
-                             :color :ghostwhite}))
+(def backends-style
+  (styles section-style
+          {:background-color "rgba(162, 63, 184, 0.88)"
+           :color :ghostwhite}))
 
 (defn backend-icon [icon caption]
    [:div.col-xs-12.col-sm-4 (use-style {:font-size :80px :text-align :center})
@@ -207,7 +211,7 @@
 (defn editors []
   [:div (use-style editors-style)
    [:div.container-fluid (use-style wrap)
-    [:div (use-style {:text-align :center}) [heading "Editor Friendly"]]
+    [:div (use-style {:text-align :center :margin-bottom :30px}) [heading "Editor Friendly"]]
     [:div.row
      [:div.col-xs-12.col-sm-4
       [card {}
@@ -256,7 +260,7 @@
     [:div.row
      [:div.col-xs-12.col-sm-12
       [card {}
-       [:h1 (use-style {:text-align :center :font-size "3.0em" :margin "15vh"})
+       [:h1 (use-style {:text-align :center :font-size "3.0em" :margin "15vh auto"})
         [:a (use-style {:color :lightgrey :text-decoration :none}
                        {:href "https://m-language.readthedocs.io/"})
          "Read The Docs"]]]]]]])
