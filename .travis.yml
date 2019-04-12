@@ -3,13 +3,13 @@ language: clojure
 branches:
     only: source
 
-script: lein cljsbuild once min && ./ci/post_build.sh
+script: lein cljsbuild once min
 
 deploy:
     provider: pages
     skip_cleanup: true
     target_branch: master
     github_token: $GH_TOKEN
-    local_dir: www
+    local_dir: "resources/public"
     on:
         branch: source

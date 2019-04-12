@@ -11,13 +11,13 @@
   (reduce merge {} stylecoll))
 
 (def m-purple "#a23fb8")
-(def section-style {:padding :30px})
+(def section-style {:padding "30px 0px"})
 
 ;; home
 
 (def full {:margin :auto :height "100%"})
 
-(def wrap {:max-width "960px" :margin "auto"})
+(def wrap {:width "960px" :max-width "100vw"})
 
 (def centered {:position "relative"
                :left "50%"
@@ -127,7 +127,7 @@
 
 (defn about []
   [:div (use-style about-style)
-   [:div.container-fluid (use-style wrap)
+   [:div.container-fluid  (use-style {:max-width "960px" :margin :auto})
     ;; -------------------------------------------------
     [:div.row (use-style {:width "100%" :margin :auto})
      [:div.col-xs-12.col-sm-5.col-md-6
