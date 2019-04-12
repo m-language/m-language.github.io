@@ -3,9 +3,7 @@ language: clojure
 branches:
     only: source
 
-script: lein cljsbuild once min
-
-before_deploy: bash ci/post_build.sh
+script: lein cljsbuild once min && ./ci/post_build.sh
 
 deploy:
     provider: pages
