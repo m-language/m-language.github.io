@@ -17,7 +17,7 @@
 
 (def full {:margin :auto :height "100%"})
 
-(def wrap {:max-width "960px"})
+(def wrap {:max-width "960px" :margin :auto})
 
 (def centered {:position "relative"
                :left "50%"
