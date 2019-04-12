@@ -11,7 +11,7 @@ deploy:
     provider: pages
     skip_cleanup: true
     target_branch: master
-    github_token: ${GH_TOKEN}
+    github_token: $GH_TOKEN
     local_dir: www
     on:
         branch: source
