@@ -11,13 +11,13 @@
   (reduce merge {} stylecoll))
 
 (def m-purple "#a23fb8")
-(def section-style {:padding "30px 0px"})
+(def section-style {:padding "30px 0px" :margin :auto})
 
 ;; home
 
 (def full {:margin :auto :height "100%"})
 
-(def wrap {:width "960px" :max-width "100vw"})
+(def wrap {:max-width "960px"})
 
 (def centered {:position "relative"
                :left "50%"
