@@ -1,5 +1,7 @@
 # m-website
 
+![build status](https://travis-ci.org/m-language/m-language.github.io.svg?branch=source)
+
 The website for the M programming language.
 
 ## Development Mode

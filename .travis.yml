@@ -1,0 +1,17 @@
+language: clojure
+
+branches:
+    only: source
+
+script: lein cljsbuild once min
+
+after_script: bash ci/post_build.sh
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    target_branch: master
+    github_token: ${GH_TOKEN}
+    local_dir: www
+    on:
+        branch: source

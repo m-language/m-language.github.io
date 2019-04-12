@@ -14,9 +14,9 @@
 
   :source-paths ["src/clj" "src/cljs"]
 
-  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
+  :clean-targets ^{:protect false} ["build/js/compiled" "target"]
 
-  :figwheel {:css-dirs ["resources/public/css"]}
+  :figwheel {:css-dirs ["static/public/css"]}
 
   :profiles
   {:dev
@@ -31,8 +31,8 @@
      :source-paths ["src/cljs"]
      :figwheel     {:on-jsload "m-website.core/mount-root"}
      :compiler     {:main                 m-website.core
-                    :output-to            "resources/public/js/compiled/app.js"
-                    :output-dir           "resources/public/js/compiled/out"
+                    :output-to            "build/js/compiled/app.js"
+                    :output-dir           "build/js/compiled/out"
                     :asset-path           "js/compiled/out"
                     :source-map-timestamp true
                     :preloads             [devtools.preload]
@@ -42,7 +42,7 @@
     {:id           "min"
      :source-paths ["src/cljs"]
      :compiler     {:main            m-website.core
-                    :output-to       "resources/public/js/compiled/app.js"
+                    :output-to       "build/js/compiled/app.min.js"
                     :optimizations   :advanced
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}

@@ -1,5 +1,7 @@
 /*.log
-/target
 /*-init.clj
-.rebel*
-out
+/.rebel*
+
+/build/
+/target/
+/www/
