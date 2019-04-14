@@ -99,12 +99,11 @@
 (def functional-example-str ";; A simple echo program which logs its output.
 (defrec echo
   (do
-    (x (read-line stdin))
-    (_
-      (run-async
+    x (read-line stdin)
+    _ (run-async
         (write-line stdout x)
-        (write-line (file-out (string \"out.log\")) x)))
-    (_ echo)))")
+        (write-line (file-out (string \"out.log\")) x))
+    _ echo))")
 
 (def functional-description
   "M's segregation of side effects allows for simple reasoning about programs
