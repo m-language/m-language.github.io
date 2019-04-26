@@ -243,7 +243,7 @@
         meaning that there will be no surprises during program execution."]
        [:div
         [:a (use-style {:color :lightgrey :text-decoration :none}
-                       {:href "https://github.com/m-language/m-spec/raw/master/m.pdf"})
+                       {:href "https://m-language.github.io/m-spec/m.html"})
          "Read It Here"]]]]
      [:div.col-xs-12.col-sm-5 (use-style {:display "flex"})
       [card {:color "ghostwhite"
