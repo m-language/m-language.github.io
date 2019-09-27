@@ -80,45 +80,45 @@
 
 (def math-description
   "M leverages ideas from Alonzo Church's Lambda Calculus to reduce language
-   complexity and provide a remarkably pure language.")
+   complexity and provide an extremely pure language.")
 
 (def abstract-example-str ";; A person data type.
-(data person name age)
+(defdata person (name age))
 
 ;; Generates json functions at compile time.
-(def-json-rw person)
+(defjson person)
 
 ;; Writes {\"name\":\"James\",\"age\":21}.
-(json-write-person stdout
-  (person (string \"James\") (nat 21))")
+(writeln stdout
+  (person->json
+    (person (string \"James\") (nat 21)))")
 
 (def abstract-description
   "M's powerful macro system allows the definition of anything from
   control flow to type systems to generic DSLs.")
 
 (def functional-example-str ";; A simple echo program which logs its output.
-(defrec echo
-  (do
-    x (read-line stdin)
-    _ (run-async
-        (write-line stdout x)
-        (write-line (file-out (string \"out.log\")) x))
-    _ echo))")
+(defnrec echo log
+  (do x (readln stdin)
+      _ (run-async
+          (writeln stdout x)
+          (writeln log x))
+      (echo log)))
+
+(echo (string->file->ostream (string \"log.txt\")))")
 
 (def functional-description
   "M's segregation of side effects allows for simple reasoning about programs
   for both you and the compiler.")
 
 (def performance-example-str ";; A high performance recursive factorial function.
-(tail-recursive
-(use-accumulator x
-(defnrec factorial x
-  (match x
-    0 1
-    _ (* x (factorial (dec x))))))))
+(defn factorial x (factorial-acc x 1))
+(defnrec factorial-acc x acc
+  (if (0? x) acc
+    (factorial-acc (dec x) (* acc x))))
 
 ;; Specializes factorial for 32 bit integers and calls it.
-((specialize factorial i32) (i32 50))")
+((specialize factorial i32) (i32 10))")
 
 (def performance-description
   "M's simplicity means that the compiler and its optimizations are
@@ -270,7 +270,7 @@
    [about]
    [backends]
    [editors]
-   [spec]
+;   [spec]
    [readthedocs]])
 
 (def main-panel home-panel)
