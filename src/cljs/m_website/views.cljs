@@ -68,52 +68,54 @@
                          ::stylefy/manual [[:.row {:margin-bottom "20px"}]]}))
 
 (def math-example-str ";; A function which ignores its second argument.
-(def true (id const))
+(def true (fn [x y] x))
 
 ;; A function which ignores its first argument.
-(def false (const id))
+(def false (fn [x y] y))
 
 ;; True if both arguments are true.
 (def and
-  (fn x y
-    (x (y id) false))))")
+  (fn [x y]
+    (x y false)))")
 
 (def math-description
   "M leverages ideas from Alonzo Church's Lambda Calculus to reduce language
    complexity and provide an extremely pure language.")
 
 (def abstract-example-str ";; A person data type.
-(defdata person (name age))
+(defdata (person name age))
 
 ;; Generates json functions at compile time.
 (defjson person)
 
 ;; Writes {\"name\":\"James\",\"age\":21}.
-(writeln stdout
-  (person->json
-    (person (string \"James\") (nat 21)))")
+(write-line stdout
+  (to-json
+    (person \"James\" 21)))")
 
 (def abstract-description
   "M's powerful macro system allows the definition of anything from
   control flow to type systems to generic DSLs.")
 
 (def functional-example-str ";; A simple echo program which logs its output.
-(defnrec echo log
-  (do x (readln stdin)
-      _ (run-async
-          (writeln stdout x)
-          (writeln log x))
-      (echo log)))
+(defnrec (echo log)
+  (do {
+    (def line (read-line stdin))
+    (run-async 
+      (write-line stdout line)
+      (write-line log line))
+    (echo log)
+  }))
 
-(echo (string->file->ostream (string \"log.txt\")))")
+(echo (file->ostream \"log.txt\"))")
 
 (def functional-description
   "M's segregation of side effects allows for simple reasoning about programs
   for both you and the compiler.")
 
 (def performance-example-str ";; A high performance recursive factorial function.
-(defn factorial x (factorial-acc x 1))
-(defnrec factorial-acc x acc
+(defn (factorial x) (factorial-acc x 1))
+(defnrec (factorial-acc x acc)
   (if (0? x) acc
     (factorial-acc (dec x) (* acc x))))
 
