@@ -52,13 +52,11 @@
                      :padding-top "110%"
                      :text-align :center}) tagline]]])
 
-
 (def card-style {:padding "10px"})
 
 (defn card [style & children]
     [:div (use-style (styles style card-style)) name
      (doall (for [item children] ^{:key item} [:div (use-style {:height "100%"}) item]))])
-
 
 (defn heading [text] [:h1 (use-style {:margin 0}) text])
 
@@ -67,13 +65,13 @@
                          :color :white
                          ::stylefy/manual [[:.row {:margin-bottom "20px"}]]}))
 
-(def math-example-str ";; A function which ignores its second argument.
+(def math-example-str "# A function which ignores its second argument.
 (def true (fn [x y] x))
 
-;; A function which ignores its first argument.
+# A function which ignores its first argument.
 (def false (fn [x y] y))
 
-;; True if both arguments are true.
+# True if both arguments are true.
 (def and
   (fn [x y]
     (x y false)))")
@@ -82,13 +80,13 @@
   "M leverages ideas from Alonzo Church's Lambda Calculus to reduce language
    complexity and provide an extremely pure language.")
 
-(def abstract-example-str ";; A person data type.
+(def abstract-example-str "# A person data type.
 (defdata (person name age))
 
-;; Generates json functions at compile time.
+# Generates json functions at compile time.
 (defjson person)
 
-;; Writes {\"name\":\"James\",\"age\":21}.
+# Writes {\"name\":\"James\",\"age\":21}.
 (write-line stdout
   (to-json
     (person \"James\" 21)))")
@@ -97,7 +95,7 @@
   "M's powerful macro system allows the definition of anything from
   control flow to type systems to generic DSLs.")
 
-(def functional-example-str ";; A simple echo program which logs its output.
+(def functional-example-str "# A simple echo program which logs its output.
 (defnrec (echo log)
   (do {
     (def line (read-line stdin))
@@ -113,13 +111,13 @@
   "M's segregation of side effects allows for simple reasoning about programs
   for both you and the compiler.")
 
-(def performance-example-str ";; A high performance recursive factorial function.
+(def performance-example-str "# A high performance recursive factorial function.
 (defn (factorial x) (factorial-acc x 1))
 (defnrec (factorial-acc x acc)
   (if (0? x) acc
     (factorial-acc (dec x) (* acc x))))
 
-;; Specializes factorial for 32 bit integers and calls it.
+# Specializes factorial for 32 bit integers and calls it.
 ((specialize factorial i32) (i32 10))")
 
 (def performance-description
