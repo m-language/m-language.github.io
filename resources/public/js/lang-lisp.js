@@ -79,16 +79,16 @@ PR['registerLangHandler'](
             [PR['PR_STRING'],      /^\"(?:[^\"\\]|\\[\s\S])*(?:\"|$)/, null, '"']
         ],
         [
-            [PR['PR_KEYWORD'],     /^(?:def|fn|defdata|defjson|write-line|to-json|defnrec|do|run-async|file->ostream|defn|if|dec|specialize|i32)\b/, null],
+            [PR['PR_KEYWORD'],     /^(?:def|fn|defdata|defjson|write-line|to-json|do|run-async|file->ostream|defn|if|dec|import|eq|mul|sub|read-line|let)\b/, null],
             [PR['PR_LITERAL'],
                 /^[+\-]?(?:[0#]x[0-9a-f]+|\d+\/\d+|(?:\.\d+|\d+(?:\.\d*)?)(?:[ed][+\-]?\d+)?\??)/i],
             // A single quote possibly followed by a word that optionally ends with
-            // = ! or ?.
+            // = ?.
             [PR['PR_LITERAL'],
-                /^\'(?:-*(?:\w|\\[\x21-\x7e])(?:[\w-]*|\\[\x21-\x7e])[=!?]?)?/],
-            // A word that optionally ends with = ! or ?.
+                /^\'(?:-*(?:\w|\\[\x21-\x7e])(?:[\w-]*|\\[\x21-\x7e])[=?]?)?/],
+            // A word that optionally ends with = ?.
             [PR['PR_PLAIN'],
-                /^-*(?:[a-z_\->]|\\[\x21-\x7e])(?:[\w-]*|\\[\x21-\x7e])[=!?]?/i],
+                /^-*(?:[a-z_\->]|\\[\x21-\x7e])(?:[\w-]*|\\[\x21-\x7e])[=?]?/i],
             // A printable non-space non-special character
             [PR['PR_PUNCTUATION'], /^[^\w\t\n\r \xA0(){}\[\]\"\\\';]+/]
         ]),

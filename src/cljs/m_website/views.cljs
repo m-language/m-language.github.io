@@ -110,7 +110,7 @@
   "M's segregation of side effects allows for simple reasoning about programs
   for both you and the compiler.")
 
-(def performance-example-str "# A generic factorial function parameterized over a numeric module
+(def performance-example-str "# A factorial function parameterized over a numeric module
 (defn (factorial num x)
   (import num
     ((eq x zero) one
