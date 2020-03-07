@@ -211,15 +211,18 @@
    [:div.container-fluid (use-style wrap)
     [:div (use-style {:text-align :center :margin-bottom :30px}) [heading "Editor Friendly"]]
     [:div.row
-     [:div.col-xs-12.col-sm-4
+     [:div.col-xs-12.col-sm-3
       [card {}
        [editor-icon "images/intellij.png" "m-language/intellij-m" "https://github.com/m-language/intellij-m"]]]
-     [:div.col-xs-12.col-sm-4
+     [:div.col-xs-12.col-sm-3
       [card {}
        [editor-icon "images/vscode.png" "m-language/vscode-m" "https://github.com/m-language/vscode-m"]]]
-     [:div.col-xs-12.col-sm-4
+     [:div.col-xs-12.col-sm-3
       [card {}
        [editor-icon "images/vim.png" "m-language/vim-m" "https://github.com/m-language/vim-m"]]]
+     [:div.col-xs-12.col-sm-3
+      [card {}
+       [editor-icon "images/sublime.png" "stuin/m-sublime" "https://github.com/stuin/M-Sublime"]]]
      ]]])
 
 (def spec-style (styles section-style
