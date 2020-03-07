@@ -96,14 +96,13 @@
   control flow to type systems to generic DSLs.")
 
 (def functional-example-str "# A simple echo program which logs its output.
-(defnrec (echo log)
-  (do {
-    (def line (read-line stdin))
-    (run-async 
-      (write-line stdout line)
-      (write-line log line))
-    (echo log)
-  }))
+(defn (echo log)
+  (let! line (read-line stdin)
+    (do {
+      (run-async 
+        (write-line stdout line)
+        (write-line log line))
+      (echo log)}))
 
 (echo (file->ostream \"log.txt\"))")
 
@@ -111,14 +110,14 @@
   "M's segregation of side effects allows for simple reasoning about programs
   for both you and the compiler.")
 
-(def performance-example-str "# A high performance recursive factorial function.
-(defn (factorial x) (factorial-acc x 1))
-(defnrec (factorial-acc x acc)
-  (if (0? x) acc
-    (factorial-acc (dec x) (* acc x))))
+(def performance-example-str "# A generic factorial function parameterized over a numeric module
+(defn (factorial num x)
+  (import num
+    ((eq x zero) one
+      (mul x (factorial num (sub x one))))))
 
-# Specializes factorial for 32 bit integers and calls it.
-((specialize factorial i32) (i32 10))")
+# The factorial function specialized for 32 bit integers
+(def factorial-int32 (factorial int32))")
 
 (def performance-description
   "M's simplicity means that the compiler and its optimizations are
