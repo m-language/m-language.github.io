@@ -88,8 +88,7 @@
 
 # Writes {\"name\":\"James\",\"age\":21}.
 (write-line stdout
-  (to-json
-    (person \"James\" 21)))")
+  (to-json (person \"James\" 21)))")
 
 (def abstract-description
   "M's powerful macro system allows the definition of anything from
@@ -97,7 +96,7 @@
 
 (def functional-example-str "# A simple echo program which logs its output.
 (defn (echo log)
-  (let! line (read-line stdin)
+  (let-cont line (read-line stdin)
     (do {
       (run-async 
         (write-line stdout line)
@@ -107,16 +106,16 @@
 (echo (file->ostream \"log.txt\"))")
 
 (def functional-description
-  "M's segregation of side effects allows for simple reasoning about programs
-  for both you and the compiler.")
+  "M isolates side effects using processes to allow for simple reasoning about
+   programs for both you and the compiler.")
 
-(def performance-example-str "# A factorial function parameterized over a numeric module
+(def performance-example-str "# A factorial function parameterized over a numeric module.
 (defn (factorial num x)
   (import num
     ((eq x zero) one
       (mul x (factorial num (sub x one))))))
 
-# The factorial function specialized for 32 bit integers
+# The factorial function specialized for 32 bit integers.
 (def factorial-int32 (factorial int32))")
 
 (def performance-description
@@ -270,7 +269,7 @@
   [:div
    [header]
    [about]
-   [backends]
+  ;  [backends]
    [editors]
 ;   [spec]
    [readthedocs]])
